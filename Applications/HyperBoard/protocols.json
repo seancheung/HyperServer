@@ -1,0 +1,127 @@
+//messages
+[
+    //login request
+    {
+        "code": 100,
+        "name": "client"
+    },
+    //login response
+    {
+        "code": 101,
+        "result": 1,
+        "uid": 0, //only if success
+        "users": [
+            {
+                "uid": 0,
+                "name": "someclient",
+                "status": 0
+            }
+        ],
+        "rooms": [
+            {
+                "rid": 0,
+                "type": 0,
+                "desc": "",
+                "capability": 10,
+                "vacancies": 5,
+                "status": 0
+            }
+        ]
+    },
+    //user notification
+    {
+        "code": 901,
+        "action": 0, //update/leave/add
+        "user": {
+            "uid": 0,
+            "name": "someclient", //only if add
+            "status": 0 //only if add/update
+        }
+    },
+    //room notification
+    {
+        "code": 903,
+        "action": 0, //update/close/add
+        "room": {
+            "rid": 0,
+            "type": 0, //only if add
+            "desc": "", //only if add
+            "capability": 10, //only if add
+            "vacancies": 5, //only if add/update
+            "status": 0 //only if add/update
+        }
+    },
+    //create room request
+    {
+        "code": 200,
+        "uid": 0,
+        "type": 0,
+        "desc": "",
+        "capability": 10
+    },
+    //create room response
+    {
+        "code": 201,
+        "result": 1,
+        "room": {
+            "rid": 0,
+            "type": 0,
+            "desc": "",
+            "capability": 10,
+            "vacancies": 5,
+            "status": 0
+        }
+    },
+    //join room request
+    {
+        "code": 202,
+        "uid": 0,
+        "rid": 0
+    },
+    //join room response
+    {
+        "code": 203,
+        "result": 1
+    },
+    //leave room request,
+    {
+        "code": 204,
+        "uid": 0,
+        "rid": 0
+    },
+    //leave room response
+    {
+        "code": 205,
+        "result": 1
+    },
+    //start game request
+    {
+        "code": 206,
+        "uid": 0,
+        "rid": 0
+    },
+    //start game response
+    {
+        "code": 207,
+        "result": 0
+    },
+    //watch game request
+    {
+        "code": 208,
+        "uid": 0,
+        "rid": 0
+    },
+    //watch game response
+    {
+        "code": 209,
+        "result": 1
+    },
+    //send message request
+    {
+        "code": 300,
+        "type": 0, //user/room/global
+        "uid": 0, //only if user
+        "rid": 0, //only if room
+        "msg": ""
+    }
+]
