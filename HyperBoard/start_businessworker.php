@@ -17,15 +17,19 @@ use \GatewayWorker\Gateway;
 use \GatewayWorker\BusinessWorker;
 use \Workerman\Autoloader;
 
+if (!defined('FRAMEWORK')) {
+    define("FRAMEWORK", strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'?'/../framework/windows':'/../framework/linux');
+}
+
 // 自动加载类
-require_once __DIR__ . '/../Framework/Workerman/Autoloader.php';
+require_once __DIR__ . FRAMEWORK . '/Workerman/Autoloader.php';
 Autoloader::setRootPath(__DIR__);
 
 
 // bussinessWorker 进程
 $worker = new BusinessWorker();
 // worker名称
-$worker->name = 'YourAppBusinessWorker';
+$worker->name = 'HyperServerBusinessWorker';
 // bussinessWorker进程数量
 $worker->count = 4;
 // 服务注册地址

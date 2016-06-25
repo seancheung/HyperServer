@@ -1,0 +1,2 @@
+php hyperboard\start_register.php hyperboard\start_gateway.php hyperboard\start_businessworker.php
+pause

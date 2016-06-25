@@ -17,18 +17,14 @@ use \GatewayWorker\Gateway;
 use \GatewayWorker\BusinessWorker;
 use \Workerman\Autoloader;
 
-if (!defined('FRAMEWORK')) {
-    define("FRAMEWORK", strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'?'/../framework/windows':'/../framework/linux');
-}
-
 // 自动加载类
-require_once __DIR__ . FRAMEWORK . '/Workerman/Autoloader.php';
+require_once __DIR__ . '/../../Workerman/Autoloader.php';
 Autoloader::setRootPath(__DIR__);
 
 // gateway 进程，这里使用Text协议，可以用telnet测试
-$gateway = new Gateway("frame://0.0.0.0:6900");
+$gateway = new Gateway("Text://0.0.0.0:8282");
 // gateway名称，status方便查看
-$gateway->name = 'HyperServerGateway';
+$gateway->name = 'YourAppGateway';
 // gateway进程数
 $gateway->count = 4;
 // 本机ip，分布式部署时使用内网ip
@@ -63,7 +59,8 @@ $gateway->onConnect = function($connection)
 */
 
 // 如果不是在根目录启动，则运行runAll方法
-if(!defined('GLOBAL_START')) {
+if(!defined('GLOBAL_START'))
+{
     Worker::runAll();
 }
 
