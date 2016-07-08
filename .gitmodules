@@ -1,0 +1,6 @@
+[submodule "framework/windows"]
+	path = framework/windows
+	url = https://github.com/walkor/GatewayWorker-for-win.git
+[submodule "framework/linux"]
+	path = framework/linux
+	url = https://github.com/walkor/GatewayWorker.git
